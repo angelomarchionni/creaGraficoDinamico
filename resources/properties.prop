@@ -1,0 +1,6 @@
+#Thu Apr 11 17:37:58 SRET 2019
+path.inseriti=C:\\pnrAnagnina\\ricercheSuDatabaseBatch\\pnr_bdu\\avro
+path.totaleGenerale=C:\\pnrAnagnina\\ricercheSuDatabaseBatch\\pnr_bdu\\avroComplete
+path.daInserire=C:\\chromedriver
+db.password=password
+db.url=localhost
