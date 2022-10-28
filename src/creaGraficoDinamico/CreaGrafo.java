@@ -188,7 +188,7 @@ public class CreaGrafo extends JFrame {
 
 	    	
 	    	
-//	    	XYPlot plot = chartdue.getXYPlot();
+//	    	XYPlot plot = chartDue.getXYPlot();
 //	        plot.configureDomainAxes();
 //	       
 //	        final TickUnits standardUnits = new TickUnits();
@@ -258,8 +258,8 @@ public class CreaGrafo extends JFrame {
 	    		 for (int counter = 0; counter < dataDifferenze.size(); counter++) { 
 	        		 
 	        		 CalcoloDifferenze p = dataDifferenze.get(counter);
-	        		 
-	        		 dataset.addValue(p.getNumeroS(),series1,  p.getMeseAnno());
+	        		 System.out.println(p.getMeseAnno().substring(4, 10));
+	        		 dataset.addValue(p.getNumeroS(),series1,  p.getMeseAnno().substring(4, 10));
 	        		
 	    		 }
 	    		
