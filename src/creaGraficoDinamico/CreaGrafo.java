@@ -188,50 +188,6 @@ public class CreaGrafo extends JFrame {
 
 	    	
 	    	
-//	    	XYPlot plot = chartDue.getXYPlot();
-//	        plot.configureDomainAxes();
-//	       
-//	        final TickUnits standardUnits = new TickUnits();
-//	        standardUnits.add(new NumberTickUnit(1));
-//	        standardUnits.add(new NumberTickUnit(5));
-//	        standardUnits.add(new NumberTickUnit(10));
-//	        standardUnits.add(new NumberTickUnit(15));
-//	        standardUnits.add(new NumberTickUnit(20));
-//	        standardUnits.add(new NumberTickUnit(25));
-//	        
-//	        
-//	        
-//	        
-//	        //  XYPlot xyPlot = chart.getXYPlot();
-//	       ValueAxis domainAxis = plot.getDomainAxis();
-//	        ValueAxis rangeAxis = plot.getRangeAxis();
-//
-//	   //   domainAxis.setRange(1, 10);
-//	   //    domainAxis.setTickUnit(new NumberTickUnit(1));
-//	     // rangeAxis.setRange(1, 20);
-//	     rangeAxis.setStandardTickUnits(standardUnits);
-//	    //   rangeAxis.setTickUnit(new NumberTickUnit(1));
-//	       
-//	       
-//
-//	        XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
-//	
-//
-//	        plot.setRenderer(renderer);
-//	        plot.setBackgroundPaint(Color.GRAY);
-//
-//	        plot.setRangeGridlinesVisible(true);
-//	        plot.setRangeGridlinePaint(Color.BLACK);
-//
-//	        plot.setDomainGridlinesVisible(true);
-//	        plot.setDomainGridlinePaint(Color.BLACK);
-//
-//	        //chart.getLegend().setAnchor(BlockBorder.NONE);
-//
-//	        chartdue.setTitle(new TextTitle("Files per giorno",
-//	                        new Font("Serif", java.awt.Font.BOLD, 18)
-//	                )
-//	        );
 
 	        return chartDue;
 	    }
@@ -258,7 +214,7 @@ public class CreaGrafo extends JFrame {
 	    		 for (int counter = 0; counter < dataDifferenze.size(); counter++) { 
 	        		 
 	        		 CalcoloDifferenze p = dataDifferenze.get(counter);
-	        		 System.out.println(p.getMeseAnno().substring(4, 10));
+	        		// System.out.println(p.getMeseAnno().substring(4, 10));
 	        		 dataset.addValue(p.getNumeroS(),series1,  p.getMeseAnno().substring(4, 10));
 	        		
 	    		 }
