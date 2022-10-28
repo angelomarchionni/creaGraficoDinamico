@@ -87,9 +87,9 @@ public class ScorriFile {
 		  		TimeSeries timeSeriesDaInserire = new TimeSeries("Files Da Inserire");
 		  		long count;
 		  		long countComplete;
-		  		long differenza;
 		  		List<Avro> data = new ArrayList<Avro>();
-		  		int cont=0;
+		  		List<CalcoloDifferenze> dataDifferenze = new ArrayList<CalcoloDifferenze>();
+		  		
 		  		
 		  	for (File num : directories) { 		
 		  		
@@ -110,7 +110,7 @@ public class ScorriFile {
 	           } catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} cont++;
+			} 
 	      }
 		  
 			for (File num : directoriesComplete) { 		      
@@ -126,7 +126,13 @@ public class ScorriFile {
 			        		 
 			        		 Avro p = data.get(counter);
 			                 if (f.parse(num.getAbsolutePath().substring(num.getAbsolutePath().lastIndexOf("\\")+1)).toString().equalsIgnoreCase(p.getMeseAnno()))
+			                 {
 			                	 System.out.println("HO Matchato" + (countComplete-p.getNumeroS()));
+			                	 // cd.setMeseAnno( f.parse(num.getAbsolutePath().substring(num.getAbsolutePath().lastIndexOf("\\")+1)).toString());
+			                	 // cd.setNumeroS(countComplete-p.getNumeroS());
+			                	 dataDifferenze.add( new CalcoloDifferenze(f.parse(num.getAbsolutePath().substring(num.getAbsolutePath().lastIndexOf("\\")+1)).toString(),countComplete-p.getNumeroS()) );
+
+			                 }
 			             }   	
 			        	 
 					} catch (ParseException e) {
@@ -141,14 +147,7 @@ public class ScorriFile {
 		  	 	
 				XYSeriesCollection dataset = new XYSeriesCollection();
 		        dataset.addSeries(series);
-		       /*
-		        try {
-		        	main_obj.creaGrafo.initUI();
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				*/
+		      
 		        main_obj.creaGrafo.setSerieCollection(dataset);
 		        main_obj.creaGrafo.setSeries(series);
 		        main_obj.creaGrafo.setTimeseriesOK(timeSeries);
@@ -167,8 +166,8 @@ public class ScorriFile {
 		     
 		     
 		     
-		     CategoryDataset serieDue = null;
-				serieDue = main_obj.creaGrafo.createDatasetDataDaInserire();
+		   
+		     CategoryDataset serieDue = main_obj.creaGrafo.createDatasetDataDaInserire(dataDifferenze);
 			     JFreeChart chartDue = main_obj.creaGrafo.createChartDue(serieDue);   
 		     
 		     

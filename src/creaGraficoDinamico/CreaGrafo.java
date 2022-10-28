@@ -35,6 +35,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class CreaGrafo extends JFrame {
 	
@@ -174,9 +175,9 @@ public class CreaGrafo extends JFrame {
 
 
 	    	JFreeChart chartDue = ChartFactory.createBarChart(
-	    			"Bar Chart Demo", // chart title
-	    			"Category", // domain axis label
-	    			"Value", // range axis label
+	    			"Differenza inserimento", // chart title
+	    			"Data", // domain axis label
+	    			"Numero files", // range axis label
 	    			serieDue, // data
 	    			PlotOrientation.VERTICAL,
 	    			true, // include legend
@@ -250,24 +251,37 @@ public class CreaGrafo extends JFrame {
 	   
 		     
 		    
-	    	public CategoryDataset createDatasetDataDaInserire() {
-	    		// row keys...
+	    	public CategoryDataset createDatasetDataDaInserire(List<CalcoloDifferenze> dataDifferenze) {
 	    		String series1 = "Differenza di files inseriti";
-	    		// String series2 = "Second";
-	    		// String series3 = "Third";
-	    		// column keys...
-	    		String category1 = "Data 1";
-	    		String category2 = "Data 2";
-	    		String category3 = "Data 3";
-	    		String category4 = "Data 4";
-	    		String category5 = "Data 5";
-	    		// create the dataset...
+	    		// row keys...
 	    		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-	    		dataset.addValue(1000, series1, category1);
-	    		dataset.addValue(459, series1, category2);
-	    		dataset.addValue(356, series1, category3);
-	    		dataset.addValue(555, series1, category4);
-	    		dataset.addValue(1414, series1, category5);
+	    		 for (int counter = 0; counter < dataDifferenze.size(); counter++) { 
+	        		 
+	        		 CalcoloDifferenze p = dataDifferenze.get(counter);
+	        		 
+	        		 dataset.addValue(p.getNumeroS(),series1,  p.getMeseAnno());
+	        		
+	    		 }
+	    		
+	    		
+	    		
+	    	
+//	    		// String series2 = "Second";
+//	    		// String series3 = "Third";
+//	    		// column keys...
+//	    		String category1 = "Data 1";
+//	    		String category2 = "Data 2";
+//	    		String category3 = "Data 3";
+//	    		String category4 = "Data 4";
+//	    		String category5 = "Data 5";
+//	    		// create the dataset...
+//	    	//	DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+//	   
+//	    		dataset.addValue(1000, series1, category1);
+//	    		dataset.addValue(459, series1, category2);
+//	    		dataset.addValue(356, series1, category3);
+//	    		dataset.addValue(555, series1, category4);
+//	    		dataset.addValue(1414, series1, category5);
 	    		
 	    		return dataset;
 	    		}
